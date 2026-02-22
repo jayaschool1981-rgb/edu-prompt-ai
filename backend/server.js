@@ -1,5 +1,5 @@
 // ==============================
-// SUPPORTPILOT AI - SERVER ENTRY
+// EDU PROMPT AI - SERVER ENTRY
 // Production Ready Version
 // ==============================
 
@@ -23,10 +23,10 @@ requiredEnv.forEach((key) => {
 const PORT = process.env.PORT || 5000;
 
 // ==============================
-// MONGODB CONNECTION
+// MONGODB CONNECTION + SERVER START
 // ==============================
 
-const connectDB = async () => {
+const startServer = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI, {
       serverSelectionTimeoutMS: 5000,
@@ -49,10 +49,10 @@ const connectDB = async () => {
     });
 
   } catch (err) {
-    console.error("❌ DB Connection Failed");
+    console.error("❌ Failed to start server");
     console.error(err.message);
     process.exit(1);
   }
 };
 
-connectDB();
+startServer();
